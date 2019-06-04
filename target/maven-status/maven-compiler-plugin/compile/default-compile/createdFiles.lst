@@ -1,0 +1,9 @@
+kz/nowebsite/service/NoteServiceImpl.class
+kz/nowebsite/domain/Note.class
+kz/nowebsite/config/WebConfig.class
+kz/nowebsite/config/RootConfig.class
+kz/nowebsite/repository/NotesRepository.class
+kz/nowebsite/repository/NotesRepositoryImpl.class
+kz/nowebsite/config/WebAppInitialiser.class
+kz/nowebsite/controller/NotesController.class
+kz/nowebsite/service/NoteService.class
