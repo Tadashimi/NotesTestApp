@@ -19,23 +19,28 @@ public class NotesRepositoryImpl implements NotesRepository {
         notes.add(note);
     }
 
+    @Override
     public void save(Note note) {
         note.setId(UUID.randomUUID());
         notes.add(note);
     }
 
+    @Override
     public synchronized void delete(Note note) {
         notes.remove(note);
     }
 
+    @Override
     public List<Note> getAll() {
         return notes;
     }
 
+    @Override
     public synchronized Note getById(UUID id) {
        for (Note n:notes) {
            if (n.getId().equals(id)) return n;
        }
        return null;
     }
+
 }

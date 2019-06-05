@@ -12,20 +12,24 @@ public class NoteServiceImpl implements NoteService {
 
     private final NotesRepository notesRepository = new NotesRepositoryImpl();
 
+    @Override
     public void save(Note note) {
         notesRepository.save(note);
     }
 
+    @Override
     public void delete(Note note) {
         if (note != null) {
             notesRepository.delete(note);
         }
     }
 
+    @Override
     public List<Note> getAll() {
         return notesRepository.getAll();
     }
 
+    @Override
     public List<Note> getSearchResult(String substring) {
         String substringInLowerCase = substring.toLowerCase();
         List<Note> result = new ArrayList<>();
@@ -36,6 +40,7 @@ public class NoteServiceImpl implements NoteService {
         return result;
     }
 
+    @Override
     public Note getById(UUID id) {
         return notesRepository.getById(id);
     }
