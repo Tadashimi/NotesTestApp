@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class NotesController {
-    private NoteService noteService;
+    private final NoteService noteService;
 
     NotesController() {
         noteService = new NoteServiceImpl();
@@ -50,14 +51,14 @@ public class NotesController {
     }
 
     @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
-    public String deleteItem(@PathVariable Integer id) {
+    public String deleteItem(@PathVariable UUID id) {
         Note note = noteService.getById(id);
         noteService.delete(note);
         return "redirect:/";
     }
 
     @RequestMapping(value = "view/{id}", method = RequestMethod.GET)
-    public String viewItem(@PathVariable Integer id, Model model) {
+    public String viewItem(@PathVariable UUID id, Model model) {
         Note note = noteService.getById(id);
         model.addAttribute("note", note);
         return "viewNote";

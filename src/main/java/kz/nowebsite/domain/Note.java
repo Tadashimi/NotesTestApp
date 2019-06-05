@@ -1,16 +1,18 @@
 package kz.nowebsite.domain;
 
+import java.util.UUID;
+
 public class Note {
 
-    private Integer id;
+    private UUID id;
     private String title;
     private String text;
 
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

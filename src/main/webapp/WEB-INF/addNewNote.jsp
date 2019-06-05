@@ -19,9 +19,9 @@
 <h1>Новая заметка</h1>
 <form action="/add-new-note" method="POST">
     <label><b>Заголовок</b></label>
-    <p><input id="title" type="text" name="title" onkeyup="checkFields();" style="width: 60%;"></p>
+    <p><input id="title" type="text" name="title" onkeyup="checkFields();" style="width: 60%;" maxlength="15"></p>
     <p><label><b>Текст заметки</b></label></p>
-    <p><textarea id="text" name="text" onkeyup="checkFields();" style="width: 60%;"></textarea></p>
+    <p><textarea id="text" name="text" onkeyup="checkFields();" style="width: 60%;" maxlength="4095"></textarea></p>
     <p><input id="saveButton" type="submit" value="Добавить заметку" disabled></p>
 </form>
 </body>

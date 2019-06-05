@@ -6,22 +6,14 @@ import kz.nowebsite.repository.NotesRepositoryImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class NoteServiceImpl implements NoteService {
 
-    private NotesRepository notesRepository = new NotesRepositoryImpl();
+    private final NotesRepository notesRepository = new NotesRepositoryImpl();
 
     public void save(Note note) {
-        if (note != null) {
-            List<Note> notes = notesRepository.getAll();
-            int elementId = 0;
-            if (!notes.isEmpty()) {
-                Note lastNote = notes.get(notes.size() - 1);
-                elementId = lastNote.getId() + 1;
-            }
-            note.setId(elementId);
-            notesRepository.save(note);
-        }
+        notesRepository.save(note);
     }
 
     public void delete(Note note) {
@@ -44,11 +36,8 @@ public class NoteServiceImpl implements NoteService {
         return result;
     }
 
-    public Note getById(Integer id) {
-        if (id != null) {
-            return notesRepository.getById(id);
-        }
-        return null;
+    public Note getById(UUID id) {
+        return notesRepository.getById(id);
     }
 
 }

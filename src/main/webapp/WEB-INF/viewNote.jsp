@@ -9,12 +9,12 @@
 
 <body>
 <h1>Просмотр заметки</h1>
-<c:set var = "note" value = "${note}"/>
+<c:set var = "note" style="width: 60%;" value = "${note}"/>
 <label><b>ID заметки</b></label>&nbsp;
-<p><input id="noteId" type="text" name="noteId" disabled value=${note.id}></p>
+<p><input id="noteId" type="text" name="noteId" disabled style="width: 60%;" value=${note.id}></p>
 <label><b>Заголовок</b></label>
-<p><input id="title" type="text" name="title" style="width: 60%;" value=${note.title}></p>
+<p><input id="title" type="text" name="title" disabled style="width: 60%;" value=${note.title}></p>
 <p><label><b>Текст заметки</b></label></p>
-<p><textarea id="text" name="text" style="width: 60%;">${note.text}</textarea></p>
+<p><textarea id="text" name="text" disabled style="width: 60%;">${note.text}</textarea></p>
 </body>
 </html>

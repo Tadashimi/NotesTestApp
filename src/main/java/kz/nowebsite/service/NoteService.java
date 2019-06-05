@@ -3,6 +3,7 @@ package kz.nowebsite.service;
 import kz.nowebsite.domain.Note;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface NoteService {
 	
@@ -14,5 +15,5 @@ public interface NoteService {
 
 	List<Note> getSearchResult(String substring);
 
-	Note getById(Integer id);
+	Note getById(UUID id);
 }

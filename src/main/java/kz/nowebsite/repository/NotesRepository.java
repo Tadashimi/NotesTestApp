@@ -3,6 +3,7 @@ package kz.nowebsite.repository;
 import kz.nowebsite.domain.Note;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface NotesRepository {
 
@@ -12,5 +13,5 @@ public interface NotesRepository {
 	
 	List<Note> getAll();
 	
-	Note getById(Integer id);
+	Note getById(UUID id);
 }
