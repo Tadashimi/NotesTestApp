@@ -8,12 +8,14 @@ public class Note {
     private String title;
     private String text;
 
-    public UUID getId() {
-        return id;
+    public Note(String title, String text) {
+        this.id = UUID.randomUUID();
+        this.title = title;
+        this.text = text;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public UUID getId() {
+        return id;
     }
 
     public String getTitle() {

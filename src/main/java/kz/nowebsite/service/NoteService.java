@@ -16,4 +16,6 @@ public interface NoteService {
 	List<Note> getSearchResult(String substring);
 
 	Note getById(UUID id);
+
+	void changeNote(UUID id, String title, String text);
 }

@@ -12,16 +12,12 @@ public class NotesRepositoryImpl implements NotesRepository {
     private List<Note> notes = Collections.synchronizedList(new ArrayList<>());
 
     public NotesRepositoryImpl() {
-        Note note = new Note();
-        note.setId(UUID.randomUUID());
-        note.setText("Текст1");
-        note.setTitle("Заголовок");
+        Note note = new Note("Текст1", "Заголовок");
         notes.add(note);
     }
 
     @Override
     public void save(Note note) {
-        note.setId(UUID.randomUUID());
         notes.add(note);
     }
 

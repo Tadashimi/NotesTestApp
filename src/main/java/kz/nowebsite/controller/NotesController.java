@@ -43,9 +43,7 @@ public class NotesController {
 
     @RequestMapping(value = "/add-new-note", method = RequestMethod.POST, produces = "text/html; charset=UTF-8")
     public String addNewNote(@RequestParam(value = "title") String title, @RequestParam(value = "text") String text) {
-        Note note = new Note();
-        note.setTitle(title);
-        note.setText(text);
+        Note note = new Note(title, text);
         noteService.save(note);
         return "redirect:/";
     }
@@ -63,4 +61,11 @@ public class NotesController {
         model.addAttribute("note", note);
         return "viewNote";
     }
+
+    @RequestMapping(value = "/edit-note", method = RequestMethod.POST, produces = "text/html; charset=UTF-8")
+    public String editNote(@RequestParam(value = "noteId") UUID id, @RequestParam(value = "title") String title, @RequestParam(value = "text") String text) {
+        noteService.changeNote(id, title, text);
+        return "redirect:/";
+    }
+
 }

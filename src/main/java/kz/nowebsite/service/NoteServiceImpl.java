@@ -45,4 +45,10 @@ public class NoteServiceImpl implements NoteService {
         return notesRepository.getById(id);
     }
 
+    @Override
+    public void changeNote(UUID id, String title, String text) {
+        Note note = notesRepository.getById(id);
+        note.setTitle(title);
+        note.setText(text);
+    }
 }
