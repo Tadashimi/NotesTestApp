@@ -4,7 +4,6 @@ import kz.nowebsite.domain.Note;
 import kz.nowebsite.repository.NotesRepository;
 import kz.nowebsite.repository.NotesRepositoryImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,14 +29,8 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public List<Note> getSearchResult(String substring) {
-        String substringInLowerCase = substring.toLowerCase();
-        List<Note> result = new ArrayList<>();
-        for(Note currentNote :notesRepository.getAll()) {
-            if (currentNote.getTitle().toLowerCase().contains(substringInLowerCase) || currentNote.getText().toLowerCase().contains(substring))
-                result.add(currentNote);
-        }
-        return result;
+    public List<Note> getSearchResult(String subString) {
+        return notesRepository.getSearchResult(subString);
     }
 
     @Override
@@ -50,5 +43,7 @@ public class NoteServiceImpl implements NoteService {
         Note note = notesRepository.getById(id);
         note.setTitle(title);
         note.setText(text);
+        notesRepository.changeNote(note);
     }
+
 }

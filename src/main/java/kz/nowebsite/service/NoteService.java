@@ -6,16 +6,17 @@ import java.util.List;
 import java.util.UUID;
 
 public interface NoteService {
-	
-	void save(Note note);
 
-	void delete(Note note);
+    void save(Note note);
 
-	List<Note> getAll();
+    void delete(Note note);
 
-	List<Note> getSearchResult(String substring);
+    List<Note> getAll();
 
-	Note getById(UUID id);
+    List<Note> getSearchResult(String substring);
 
-	void changeNote(UUID id, String title, String text);
+    Note getById(UUID id);
+
+    void changeNote(UUID id, String title, String text);
+
 }

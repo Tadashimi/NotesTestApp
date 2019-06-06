@@ -14,6 +14,12 @@ public class Note {
         this.text = text;
     }
 
+    public Note(Note note) {
+        this.id = note.getId();
+        this.title = note.getTitle();
+        this.text = note.getText();
+    }
+
     public UUID getId() {
         return id;
     }
