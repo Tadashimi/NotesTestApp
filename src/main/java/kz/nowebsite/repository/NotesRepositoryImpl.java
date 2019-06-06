@@ -3,13 +3,12 @@ package kz.nowebsite.repository;
 import kz.nowebsite.domain.Note;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
 public class NotesRepositoryImpl implements NotesRepository {
 
-    private List<Note> notes = Collections.synchronizedList(new ArrayList<>());
+    private List<Note> notes = new ArrayList<>();
 
     public NotesRepositoryImpl() {
         Note note = new Note("Текст1", "Заголовок");
@@ -61,7 +60,7 @@ public class NotesRepositoryImpl implements NotesRepository {
         }
     }
 
-    private List<Note> cloneNotes() {
+    private synchronized List<Note> cloneNotes() {
         List<Note> clone = new ArrayList<>(notes.size());
         for (Note note : notes) clone.add(new Note(note));
         return clone;
