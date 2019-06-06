@@ -67,12 +67,12 @@ public class NotesRepositoryImpl implements NotesRepository {
         }
     }
 
-    private synchronized List<Note> cloneNotes() {
-        List<Note> clone = new ArrayList<>(notes.size());
+    private List<Note> cloneNotes() {
         synchronized (notes) {
+            List<Note> clone = new ArrayList<>(notes.size());
             for (Note note : notes) clone.add(new Note(note));
+            return clone;
         }
-        return clone;
     }
 
 }
